@@ -1,0 +1,112 @@
+#wpbody-content > .wrap > .row > .col-12 >.updated,
+#wpbody-content > .wrap > .row > .col-12 > .notice {
+   display:none !important;
+}
+
+#wpcontent {
+    background: #f1f1f1 !important;
+}
+
+#loader {
+    background: rgba(255,255,255,.7) url('../img/loader.gif') 50% 200px no-repeat;
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 20px);
+    margin-left: -20px;
+}
+.read-form[data-toggle],
+.read-form[data-placement],
+.read-form[data-bs-original-title] {
+    z-index: 100 !important;
+}
+
+.alert p,
+.alert ul {
+    font-size: 14px;
+}
+.alert p {
+    font-weight: 600;
+}
+.alert .dashicons {
+    width: 15px;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+
+.entries {
+    margin-bottom: 0;
+}
+.entries thead,
+.forms thead th {
+    background: #1d2327;
+    color: #fff;
+}
+.entries tbody,
+.forms tbody {
+    background: #fff !important;
+}
+.entries th, .entries td,
+.forms th, .forms td {
+    white-space: nowrap;
+}
+.forms tr td:first-child {
+    min-width: 200px;
+}
+.forms tr td:nth-child(2) {
+    min-width: 35px;
+    text-align: right !important;
+}
+.forms tr td:nth-child(3),
+.forms tr td:nth-child(4) {
+    width: 40px !important;
+}
+.forms tr td:nth-child(3) {
+    padding: .6rem .5rem .4rem !important;
+}
+.forms tr td:nth-child(4) {
+    padding: .7rem .5rem .3rem !important;
+}
+.entries tbody tr:hover {
+    cursor: default;
+}
+.entries tbody tr.focus {
+    background: #ddd;
+}
+.read-form {
+    cursor: pointer;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1d2327;
+}
+
+
+#labels-content .custom-checkbox {
+    display: flex;
+    white-space: nowrap;
+}
+#labels-content .custom-control-label {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#labels-content .custom-control-input {
+    margin-top: 2px;
+}
+
+#pills-table tbody .noExl {
+    background: #ccc;
+}
+
+.list-table {
+    max-height: 412px;
+    border-color: #999 !important;
+    overflow: auto;
+}
+.list-table, .list-table table {
+    transform: rotateX(180deg);
+}

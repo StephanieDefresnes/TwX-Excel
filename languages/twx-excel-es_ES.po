@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TwX Excel Export\n"
+"POT-Creation-Date: 2021-04-10 00:04+1000\n"
+"PO-Revision-Date: 2021-04-10 00:04+0200\n"
+"Last-Translator: Seds <seds.admin@gmail.com>\n"
+"Language-Team: TwX Team <seds.admin@gmail.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-WPHeader: twx_functions.php\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: ../twx_functions.php:3
+msgid "TwX Excel Export for Caldera Forms"
+msgstr "Exportación TwX Excel para formularios Caldera"
+
+#: ../twx_functions.php:6
+msgid "Entries Caldera Forms export in .xls"
+msgstr "Entradas Caldera Forms exportar en .xls"
+
+#: ../twx_functions.php:53
+msgid "Sorry, but TwX Excel plugin requires Caldera Forms plugin to be installed and active."
+msgstr "Lo sentimos, pero el complemento TwX Excel requiere que el complemento Caldera Forms esté instalado y activo."
+
+#: ../templates/index.php:9
+msgid "Forms and Export"
+msgstr "Formularios y Exportación"
+
+#: ../templates/index.php:16
+msgid "Active Forms list"
+msgstr "Lista de formularios activos"
+
+#: ../templates/index.php:28
+msgid "Consult"
+msgstr "Consultar"
+
+#: ../templates/index.php:41
+msgid "Please select :"
+msgstr "Por favor seleccione :"
+
+#: ../templates/index.php:45
+msgid "Form to download"
+msgstr "El formulario para descargar"
+
+#: ../templates/index.php:49
+msgid "Fields to keep"
+msgstr "Los campos para mantener"
+
+#: ../templates/index.php:53
+msgid "Entries to keep"
+msgstr "Las entradas para mantener"
+
+#: ../templates/index.php:56
+msgid "Than download !"
+msgstr "¡Que descargar!"
+
+#: ../templates/index.php:70
+msgid "Fields list"
+msgstr "Lista de campos"
+
+#: ../templates/index.php:77
+msgid "Data table"
+msgstr "Tabla de datos"
+
+#: ../templates/index.php:84
+msgid "Download"
+msgstr "Descargar"
+
+#: ../templates/index.php:115
+msgid "Depending on your browser, the downloaded file may say <em>damaged</em>."
+msgstr "Dependiendo de su navegador, se puede afirmar que el archivo descargado está <em>dañado</em>."
+
+#: ../templates/index.php:117
+msgid "However, you can open it without risk."
+msgstr "Sin embargo, puede abrirlo sin riesgo."
+
+#: ../templates/index.php:120
+msgid "Download now"
+msgstr "Descargar ahora"
