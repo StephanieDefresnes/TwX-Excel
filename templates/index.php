@@ -67,21 +67,21 @@
         
         <ul class="nav nav-pills mb-2" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link pt-1 active" id="pills-fields-tab"
+            <button class="nav-link active" id="pills-fields-tab"
                     data-bs-toggle="pill" data-bs-target="#pills-fields" type="button"
                     role="tab" aria-controls="pills-fields" aria-selected="true">
                 <?php _e('Fields list', 'twx-excel'); ?>
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link pt-1" id="pills-table-tab"
+            <button class="nav-link" id="pills-table-tab"
                     data-bs-toggle="pill" data-bs-target="#pills-table" type="button"
                     role="tab" aria-controls="pills-table" aria-selected="false">
                 <?php _e('Data table', 'twx-excel'); ?>
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link pt-1" id="pills-download-tab"
+            <button class="nav-link" id="pills-download-tab"
                     data-bs-toggle="pill" data-bs-target="#pills-download"type="button"
                     role="tab" aria-controls="pills-download" aria-selected="false">
                 <?php _e('Download', 'twx-excel'); ?>
