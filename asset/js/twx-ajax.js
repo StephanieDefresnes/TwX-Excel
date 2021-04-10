@@ -32,7 +32,7 @@ function loadData($,data,formId) {
                     } else if(key2 == 'labels') {
 
                         $('#pills-table thead tr').append(
-                            '<td data-id="all">'
+                            '<td data-id="all" class="control-check noExl">'
                             +'<input type="checkbox"'
                                 +'class="custom-control-input pills-table-control"'
                                 +'value="all" checked></td>');
@@ -101,7 +101,7 @@ function loadData($,data,formId) {
                 // For each entry add entryId to tr data-id
                 Object.keys(val1).forEach(function(key2, i, val2) {
                     $('#pills-table tbody tr:eq('+ i +')').attr('data-id', key2)
-                            .prepend('<td data-id="'+ key2 +'">'
+                            .prepend('<td data-id="'+ key2 +'" class="control-check noExl">'
                                 +'<input type="checkbox"'
                                     +'class="custom-control-input pills-table-control"'
                                     +'value="'+ key2 +'" checked></td>');

@@ -101,6 +101,9 @@
 #pills-table tbody .noExl {
     background: #ccc;
 }
+#pills-table tbody .control-check.noExl {
+    background: transparent;
+}
 
 .list-table {
     max-height: 412px;
