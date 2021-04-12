@@ -132,9 +132,7 @@ function loadData($,data,formId) {
 
         })
         if (!$('#labels-content').hasClass('onReload')) {
-//            $('#labels-content').removeClass('d-none')
             $('#nav-data').removeClass('d-none')
-//            $('#pills-table').show()
         }
         $('#loader').hide()
 }
@@ -206,8 +204,6 @@ jQuery(function($) {
                 }
                 
             })
-//            $('#pills-table').hide()
-//            $('#labels-content').addClass('d-none')
             $('#labels-content').find('.custom-control').each(function() {
                 $(this).remove()
             })            
@@ -229,11 +225,5 @@ jQuery(function($) {
             loadData($,data,formId)
 	})
     })
-    
-//    $('.entries').delegate('.entries tbody td', 'click', function() {alert('ok')
-////    $('.entries tbody tr').click(function() {alert('ok')
-//        if($(this).hasClass('focus')) $(this).removeClass('focus')
-//        else $(this).addClass('focus')
-//    })
     
 })
