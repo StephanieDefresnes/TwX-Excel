@@ -36,10 +36,19 @@
                 <?php } ?>
                 </tbody>
             </table>
-            <?php } else {
-                _e('<p class="text-secondary">No entry recorded among active forms.</p>', 'twx-excel');
-            } ?>
+            <?php } else { ?>
+                <p class="text-secondary">
+                    <?php _e('No entry recorded among active forms.', 'twx-excel'); ?>
+                    <?php _e('Please refer to the ', 'twx-excel'); ?>
+                    <?= '<a href="'.admin_url(
+                            $path = 'admin.php?page=caldera-forms',
+                            $scheme = 'admin').'">Caldera Forms</a>'
+                            .__('&nbsp;plugin.', 'twx-excel'); ?>
+                </p>
+            <?php } ?>
         </div>
+        
+        <?php if ($options['forms']) {?>
         <div class="col-xl-4 offset-xl-2 col-sm-6 offset-sm-0 col-12">
             
             <div class="alert alert-secondary" role="alert">
@@ -61,6 +70,8 @@
                 <p class="mb-1 px-2"><?php _e('Than download !', 'twx-excel'); ?></p>
             </div>
         </div>
+        <?php } ?>
+        
     </div>
 
     <div id="nav-data" class="d-none mt-4">

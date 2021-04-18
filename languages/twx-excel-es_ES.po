@@ -46,50 +46,58 @@ msgstr "Lista de formularios activos"
 msgid "Consult"
 msgstr "Consultar"
 
-#: ../templates/index.php:40
+#: ../templates/index.php:41
 msgid "No entry recorded among active forms."
 msgstr "No se registró ninguna entrada entre las formas activas."
 
+#: ../templates/index.php:42
+msgid "Please refer to the "
+msgstr "Consulte el complemento "
+
 #: ../templates/index.php:46
+msgid "&nbsp;plugin."
+msgstr "."
+
+#: ../templates/index.php:55
 msgid "Please select :"
 msgstr "Por favor seleccione :"
 
-#: ../templates/index.php:50
+#: ../templates/index.php:59
 msgid "Form to download"
 msgstr "El formulario para descargar"
 
-#: ../templates/index.php:54
+#: ../templates/index.php:63
 msgid "Fields to keep"
 msgstr "Los campos para mantener"
 
-#: ../templates/index.php:58
+#: ../templates/index.php:67
 msgid "Entries to keep"
 msgstr "Las entradas para mantener"
 
-#: ../templates/index.php:61
+#: ../templates/index.php:70
 msgid "Than download !"
 msgstr "¡Que descargar!"
 
-#: ../templates/index.php:75
+#: ../templates/index.php:86
 msgid "Fields list"
 msgstr "Lista de campos"
 
-#: ../templates/index.php:82
+#: ../templates/index.php:93
 msgid "Data table"
 msgstr "Tabla de datos"
 
-#: ../templates/index.php:89
+#: ../templates/index.php:100
 msgid "Download"
 msgstr "Descargar"
 
-#: ../templates/index.php:115
+#: ../templates/index.php:126
 msgid "Depending on the browser you are downloading the file from, it may be claimed to be <em>&quot;damaged&quot;</em>."
 msgstr "Dependiendo del navegador desde el que descargue el archivo, se puede afirmar que está <em>&quot;dañado&quot;</em>."
 
-#: ../templates/index.php:122
+#: ../templates/index.php:133
 msgid "However, you can open it without risk."
 msgstr "Sin embargo, puede abrirlo sin riesgo."
 
-#: ../templates/index.php:125
+#: ../templates/index.php:136
 msgid "Download now"
 msgstr "Descargar ahora"
