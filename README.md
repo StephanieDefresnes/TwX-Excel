@@ -2,7 +2,7 @@
 
 Wordpress plugins intended to export Caldera Forms plugins entries in .xls format. Developed in OOP.
 
-Developed for specific needs in text, checkbox and radio fields, this plugin needs to be tested for all other types of field.
+Developed for specific needs, this plugin needs to be tested for all configurations.
 
 Translated into French and Spanish.
 

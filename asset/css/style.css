@@ -67,6 +67,12 @@
 .forms tr td:nth-child(4) {
     padding: .7rem .5rem .3rem !important;
 }
+.entries th {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
 .entries tbody tr:hover {
     cursor: default;
 }

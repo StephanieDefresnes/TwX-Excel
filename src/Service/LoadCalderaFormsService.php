@@ -58,13 +58,18 @@ class LoadCalderaFormsService {
                     AND form_id = '". $formId ."'"
             );
         
-        // Rebuild array result to load form name and labels name 
+        // Rebuild array result to load fields data 
         foreach ($config as $key => $object) {
             $formsName = [];
             $results[] = unserialize($object->config);
             foreach ($results as $key => $value) {
                 foreach ($value['fields'] as $key => $field) {
-                    $fieldName[] = [$field['ID'] => $field['label']];
+                    $fieldName[] = [
+                        'id' => $field['ID'],
+                        'label' => $field['label'],
+                        'type' => $field['type'],
+                        'entry_list' => $field['entry_list']
+                    ];
                 }
                 $formName = [$value['ID'] => $value['name']];
                 $form = [

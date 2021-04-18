@@ -30,6 +30,10 @@ msgstr "Entradas Caldera Forms exportar en .xls"
 msgid "Sorry, but TwX Excel plugin requires Caldera Forms plugin to be installed and active."
 msgstr "Lo sentimos, pero el complemento TwX Excel requiere que el complemento Caldera Forms esté instalado y activo."
 
+#: ../twx_functions.php:58
+msgid "You do not have permission to access this page."
+msgstr "Usted no tiene permiso para acceder a esta página."
+
 #: ../templates/index.php:9
 msgid "Forms and Export"
 msgstr "Formularios y Exportación"

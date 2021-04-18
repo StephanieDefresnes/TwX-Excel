@@ -4,7 +4,7 @@
  * Text Domain: twx-excel
  * Domain Path: /languages
  * Description: Entries Caldera Forms export in .xls
- * Version: 1.0
+ * Version: 1.1
  * Requires at least: 5.7
  * Tested up to: 5.7
  * Author: TwXDesign
@@ -55,7 +55,7 @@ class TwxExportExcel
     
     public function twx_excel_load_view() {
         if (!current_user_can('manage_options')) {
-            wp_die(__('Vous n\'avez pas les droits pour accéder à cette page.'));
+            wp_die(__('You do not have permission to access this page.'));
         }  
         $current_views = $this->views[current_filter()];
         $options['forms'] = $this->twx_excel_forms_list();

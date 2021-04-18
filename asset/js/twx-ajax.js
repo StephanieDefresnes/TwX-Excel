@@ -36,13 +36,15 @@ function loadData($,data,formId) {
                             +'<input type="checkbox"'
                                 +'class="custom-control-input pills-table-control"'
                                 +'value="all" checked></td>');
-
+                        
                         $.each(val2,function(key3, val3) {
-                            $.each(val3,function(key4, val4) {
-
+                            
+                            if (val3['type'] != 'html' && val3['type'] != 'button'
+                             && val3['entry_list'] == 1) {
+                            
                                 // Load labels into thead
                                 $('#pills-table thead tr').append(
-                                    '<th data-id="'+ key4 +'">'+ val4 +'</th>'
+                                    '<th data-id="'+ val3['id'] +'">'+ val3['label'] +'</th>'
                                 )
 
                                 // Load labels to unselect
@@ -51,17 +53,17 @@ function loadData($,data,formId) {
                                         '<div class="custom-control custom-checkbox col-sm-3 col-6 mb-1">'
                                             +'<input type="checkbox"'
                                                 +'class="custom-control-input labels-input-control"'
-                                                +'value="'+ key4 +'" checked>'
+                                                +'value="'+ val3['id'] +'" checked>'
                                             +'<label class="custom-control-label labels-label-control"'
-                                                +'for="'+ key4 +'">'
-                                                + val4 +'</label>'
+                                                +'for="'+ val3['id'] +'">'
+                                                + val3['label']  +'</label>'
                                         +'</div>'
                                     )
                                 }
 
                                 // Init tbody depending on form labels id
                                 $('#pills-table tbody tr').append(
-                                    '<td data-id="'+ key4 +'"></td>'
+                                    '<td data-id="'+ val3['id'] +'"></td>'
                                 )
                                 if ($('#labels-content').hasClass('onReload')) {
                                     $('#labels-content').find('input').each(function() {
@@ -80,7 +82,8 @@ function loadData($,data,formId) {
                                         }     
                                     })
                                 }
-                            })
+                            }
+                            
                         })
 
                     }
