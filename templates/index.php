@@ -11,7 +11,7 @@
         </div>
         
         <div class="col-sm-6 col-12">
-            
+            <?php if ($options['forms']) {?>
             <table class="table table-bordered forms">
                 <thead>
                     <tr>
@@ -36,7 +36,9 @@
                 <?php } ?>
                 </tbody>
             </table>
-            
+            <?php } else {
+                _e('<p class="text-secondary">No entry recorded among active forms.</p>', 'twx-excel');
+            } ?>
         </div>
         <div class="col-xl-4 offset-xl-2 col-sm-6 offset-sm-0 col-12">
             
@@ -99,7 +101,7 @@
             <div class="tab-pane fade" id="pills-table" role="tabpanel"
                  aria-labelledby="pills-table-tab">
                 <div class="list-table border">
-                    <table class="table table-sm table-hover entries">   
+                    <table class="table table-bordered table-sm table-hover entries">   
                         <thead>
                             <tr></tr>
                         </thead>
@@ -115,7 +117,7 @@
                  aria-labelledby="pills-download-tab">
                 <div class="text-center mt-4">
                     <p class="small mb-4">
-                        <?php _e('Depending on your browser, the downloaded file may say <em>damaged</em>.',
+                        <?php _e('Depending on the browser you are downloading the file from, it may be claimed to be <em>&quot;damaged&quot;</em>.',
                                 'twx-excel'); ?><br>
                         <?php _e('However, you can open it without risk.', 'twx-excel'); ?>
                     </p>

@@ -38,54 +38,58 @@ msgstr "Usted no tiene permiso para acceder a esta página."
 msgid "Forms and Export"
 msgstr "Formularios y Exportación"
 
-#: ../templates/index.php:16
+#: ../templates/index.php:19
 msgid "Active Forms list"
 msgstr "Lista de formularios activos"
 
-#: ../templates/index.php:28
+#: ../templates/index.php:31
 msgid "Consult"
 msgstr "Consultar"
 
-#: ../templates/index.php:41
+#: ../templates/index.php:40
+msgid "No entry recorded among active forms."
+msgstr "No se registró ninguna entrada entre las formas activas."
+
+#: ../templates/index.php:46
 msgid "Please select :"
 msgstr "Por favor seleccione :"
 
-#: ../templates/index.php:45
+#: ../templates/index.php:50
 msgid "Form to download"
 msgstr "El formulario para descargar"
 
-#: ../templates/index.php:49
+#: ../templates/index.php:54
 msgid "Fields to keep"
 msgstr "Los campos para mantener"
 
-#: ../templates/index.php:53
+#: ../templates/index.php:58
 msgid "Entries to keep"
 msgstr "Las entradas para mantener"
 
-#: ../templates/index.php:56
+#: ../templates/index.php:61
 msgid "Than download !"
 msgstr "¡Que descargar!"
 
-#: ../templates/index.php:70
+#: ../templates/index.php:75
 msgid "Fields list"
 msgstr "Lista de campos"
 
-#: ../templates/index.php:77
+#: ../templates/index.php:82
 msgid "Data table"
 msgstr "Tabla de datos"
 
-#: ../templates/index.php:84
+#: ../templates/index.php:89
 msgid "Download"
 msgstr "Descargar"
 
 #: ../templates/index.php:115
-msgid "Depending on your browser, the downloaded file may say <em>damaged</em>."
-msgstr "Dependiendo de su navegador, se puede afirmar que el archivo descargado está <em>dañado</em>."
+msgid "Depending on the browser you are downloading the file from, it may be claimed to be <em>&quot;damaged&quot;</em>."
+msgstr "Dependiendo del navegador desde el que descargue el archivo, se puede afirmar que está <em>&quot;dañado&quot;</em>."
 
-#: ../templates/index.php:117
+#: ../templates/index.php:122
 msgid "However, you can open it without risk."
 msgstr "Sin embargo, puede abrirlo sin riesgo."
 
-#: ../templates/index.php:120
+#: ../templates/index.php:125
 msgid "Download now"
 msgstr "Descargar ahora"
