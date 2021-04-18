@@ -8,7 +8,9 @@ Translated into French and Spanish.
 
 Tested for Wordpress version 5.7
 
-Fonctionalities :
-- Fields selection
-- Entries selection
-- Download .xls file
+Fonctionalities :<br>
+ • Fields selection<br>
+ • Entries selection<br>
+ • Download .xls file
+
+After downloading TwX Excel plugin, please rename master folder into 'twx-excel' before WP installation
