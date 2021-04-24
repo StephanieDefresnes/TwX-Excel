@@ -6,4 +6,6 @@ Developed for specific needs, this plugin needs to be tested for all configurati
 
 Translated into French and Spanish.
 
+Datatables translated depending on locale
+
 Tested for Wordpress version 5.7

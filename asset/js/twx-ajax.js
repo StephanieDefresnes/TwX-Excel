@@ -1,3 +1,21 @@
+var dataTable;
+
+function resetData($, btn, table) {
+    
+    $('#nav-data').addClass('d-none')
+    
+    $('#labels-content').find('.custom-control').each(function() {
+        $(this).remove()
+    })  
+
+    $('#pills-table thead, #pills-table tbody')
+        .empty().html('<tr></tr>')
+
+    // Debug DataTables warning - Cannot reinitialise DataTable
+    if ($('.list-table').hasClass('datatable-loaded')) {
+        $('.list-table').html(table)
+    }
+}
 function isItJSON(data) {
     try {
         // If JSON, parse it and return value into strig
@@ -22,21 +40,18 @@ function loadData($,data,formId) {
                 $.each(val1,function(key2, val2) {
 
                     if(key2 == 'formName') {
-                        if (!$('#labels-content').hasClass('onReload')) {
-                            // Load form name as title
-                            $.each(val2,function(key3, val3) {
-                                $('#formName').text(val3)
-                            })
-                        }
-
+                        
+                        // Load form name as title
+                        $.each(val2,function(key3, val3) {
+                            $('#formName').text(val3)
+                        })
+                        
                     } else if(key2 == 'labels') {
 
                         $('#pills-table thead tr').append(
-                            '<td data-id="all" class="control-check noExl">'
-                            +'<input type="checkbox"'
-                                +'class="custom-control-input pills-table-control"'
-                                +'value="all" checked></td>');
-                        
+                            '<th data-id="">#</th>');
+                    
+                        var i = 1;
                         $.each(val2,function(key3, val3) {
                             
                             if (val3['type'] != 'html' && val3['type'] != 'button'
@@ -48,40 +63,23 @@ function loadData($,data,formId) {
                                 )
 
                                 // Load labels to unselect
-                                if (!$('#labels-content').hasClass('onReload')) {
-                                    $('#labels-content').attr('data-form', formId).append(
-                                        '<div class="custom-control custom-checkbox col-sm-3 col-6 mb-1">'
-                                            +'<input type="checkbox"'
-                                                +'class="custom-control-input labels-input-control"'
-                                                +'value="'+ val3['id'] +'" checked>'
-                                            +'<label class="custom-control-label labels-label-control"'
-                                                +'for="'+ val3['id'] +'">'
-                                                + val3['label']  +'</label>'
-                                        +'</div>'
-                                    )
-                                }
+                                $('#labels-content').attr('data-form', formId).append(
+                                    '<div class="custom-control custom-checkbox col-sm-3 col-6 mb-1">'
+                                        +'<input type="checkbox" id="'+ val3['id'] +'" '
+                                            +'class="custom-control-input labels-input-control" '
+                                            +'value="'+ val3['id'] +'" data-column="'+ i +'" '
+                                            +'checked>'
+                                        +'<label class="custom-control-label labels-label-control" '
+                                            +'for="'+ val3['id'] +'" data-column="'+ i++ +'">'
+                                            + val3['label']  +'</label>'
+                                    +'</div>'
+                                )
 
                                 // Init tbody depending on form labels id
                                 $('#pills-table tbody tr').append(
                                     '<td data-id="'+ val3['id'] +'"></td>'
                                 )
-                                if ($('#labels-content').hasClass('onReload')) {
-                                    $('#labels-content').find('input').each(function() {
-                                        if(!$(this).is(':checked')) {
-                                            var fieldId = $(this).val()
-                                            $('#pills-table thead').find('th').each(function() {
-                                                if ($(this).attr('data-id') == fieldId) {
-                                                    $(this).remove()
-                                                }
-                                            })
-                                            $('#pills-table tbody').find('td').each(function() {
-                                                if ($(this).attr('data-id') == fieldId) {
-                                                    $(this).remove()
-                                                }
-                                            })
-                                        }     
-                                    })
-                                }
+                        
                             }
                             
                         })
@@ -104,10 +102,8 @@ function loadData($,data,formId) {
                 // For each entry add entryId to tr data-id
                 Object.keys(val1).forEach(function(key2, i, val2) {
                     $('#pills-table tbody tr:eq('+ i +')').attr('data-id', key2)
-                            .prepend('<td data-id="'+ key2 +'" class="control-check noExl">'
-                                +'<input type="checkbox"'
-                                    +'class="custom-control-input pills-table-control"'
-                                    +'value="'+ key2 +'" checked></td>');
+                            .prepend('<td data-id="'+ key2 
+                                +'" class="control-check noExl">'+ key2 +'</td>');
                 })
 
                 // Get JSON data values
@@ -134,89 +130,125 @@ function loadData($,data,formId) {
             }
 
         })
-        if (!$('#labels-content').hasClass('onReload')) {
-            $('#nav-data').removeClass('d-none')
-        }
+        $('#nav-data').removeClass('d-none')
         $('#loader').hide()
+}
+
+// Get locale to load datatables i18n file name
+function getDatatablesLang(locale) {
+    var langName, lang = locale.replace('-', '_')
+    jQuery.ajax({
+       url: pluginUrl +'/asset/js/locale.json',
+       type: 'get',
+       dataType: 'json',
+       async: false,
+       success: function(data) {
+           langName = data[lang]
+       } 
+    });
+    return langName
+}
+
+// Nest table into div to get overflow with datatables config
+function overflowTable($) {
+    var table = $('#pills-table').contents()
+                    ['prevObject'][0]['childNodes'][1]['childNodes'][2]
+                    ['previousElementSibling']['childNodes'][3]
+    var div = '<div class="table-overflow col-12 pt-2"></div>'
+    var newTable = $(div).html(table)
+    var newDiv = $(newTable).insertAfter($('#datatables_filter'))
+    return $(newDiv).insertAfter($('#datatables_filter'))
+}
+
+// Create file's name depending on form name
+function nameFile($) {
+    var today = new Date(),
+        d = String(today.getDate()).padStart(2, '0'),
+        m = String(today.getMonth() + 1).padStart(2, '0'),
+        Y = today.getFullYear(),
+        h = String(today.getHours()).padStart(2, '0'),
+        m = String(today.getMinutes()).padStart(2, '0'),
+        s = String(today.getSeconds()).padStart(2, '0'),
+        name = $('#formName').text();
+    var filename = name.replace(' ', '-')
+    return filename +'_'+ Y + m + d +'-'+ h + m + s
+}
+
+// Hide pagination if only one page
+function togglePagination($) {
+    if ($('#datatables_paginate > span > a').length == 1) {
+        $('#datatables_paginate').addClass('d-none')
+    }
+}
+
+// Init Datatables
+function loadDatatables($) {
+    var langName = getDatatablesLang($('html').attr('lang'))
+    dataTable = $('#datatables').DataTable({
+        language: {
+            url: '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/'+ langName +'.json',
+            select: {
+                rows: {
+                    _: '<span class="d-custom"> &nbsp; &nbsp; &nbsp; </span>%d<span class="dashicons dashicons-yes"></span>' 
+                            +'&nbsp; <span id="deselect" class="dashicons dashicons-dismiss"></span>',
+                    0: ''
+                }
+            },
+            buttons: {
+                selectNone: '<span class="dashicons dashicons-dismiss"></span>'
+            }
+        },
+        select: {
+            style: 'multi'
+        }, 
+        dom: 'Blfrtip',
+        buttons: [
+            {
+                extend: 'selectNone',
+                text: ''
+            },
+            {
+                extend: 'excelHtml5',
+                title:  nameFile($),
+                text: '',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
+                }
+            }
+        ],
+        'order': [],
+        'initComplete': function(settings, json) {
+            overflowTable($),
+            togglePagination($)
+            
+        }
+    });
+    $('.list-table').addClass('datatable-loaded')
 }
 
 jQuery(function($) {
     
+    // Hide loder at the end of dom ready
+    $('#loader').hide()
+    
     // Unselect/hide column
-    $('#labels-content').delegate('.labels-label-control', 'click', function() {
-        $(this).prev('.labels-input-control').click()        
-    })
-    $('#labels-content').delegate('.labels-input-control', 'change', function() {
-        var formID = $('#labels-content').attr('data-form')
-        $('.table.forms').find('.read-form').each(function() {
-            if ($(this).attr('data-form') == formID) {
-                $(this).addClass('onReload').click()
-            }
-        })
-        $('#labels-content').addClass('onReload')
+    $('#labels-content').delegate('.labels-input-control', 'change', function(e) {
+        e.preventDefault();
+        var column = dataTable.column( $(this).attr('data-column') );
+        column.visible( ! column.visible() );
     })
     
-    // Select/unselect all entries
-    $('#pills-table').delegate('.pills-table-control', 'change', function() {
-        var entryID = $(this).val()
-        
-        if (entryID == 'all' && !$(this).is(':checked')) {
-            
-            $('#pills-table tbody').find('tr').each(function() {
-                $(this).addClass('noExl')
-                        .find('.pills-table-control').prop('checked', false);
-            })
-            
-        } else if (entryID == 'all' && $(this).is(':checked')) {
-            
-            $('#pills-table tbody').find('tr').each(function() {
-                if ($(this).hasClass('noExl'))
-                    $(this).removeClass('noExl')
-                        .find('.pills-table-control').prop('checked', true);
-            })
-            
-        } else if (entryID != 'all' && !$(this).is(':checked')) {
-            
-            $(this).parents('tr').addClass('noExl')
-                    .find('.pills-table-control').prop('checked', false);
-            
-        } else if (entryID != 'all' && $(this).is(':checked')) {
-            
-            if ($(this).parents('tr').hasClass('noExl'))
-                $(this).parents('tr').removeClass('noExl')
-                    .find('.pills-table-control').prop('checked', true);
-            else $(this).find('.pills-table-control').prop('checked', true);
-            
-        }
-    })
-    
-    // Load clicked entries form
+    // Load entries clicked form
+    var tableInit = $('.list-table').html()
     $('.read-form').click(function() {
         
         $('#loader').show()
         
         // Reset data
-        if (!$(this).hasClass('onReload')) {
-            $('#nav-data').addClass('d-none')
-            if ($('#labels-content').hasClass('onReload')) {
-                $('#labels-content').removeClass('onReload')
-            }
-            $('.read-form').each(function() {
-                if ($(this).hasClass('onReload')) {
-                    $(this).removeClass('onReload')
-                }
-                
-            })
-            $('#labels-content').find('.custom-control').each(function() {
-                $(this).remove()
-            })            
-        }
+        resetData($, $(this), tableInit)
         
-        $('#pills-table thead, #pills-table tbody')
-            .empty().html('<tr></tr>')
-            
+        // Load datas form
         var formId = $(this).attr('data-form')
-        
         $.ajax({
             url: ajax_object.ajax_url,
             type: "POST",
@@ -226,7 +258,18 @@ jQuery(function($) {
             }
         }).done(function(data){
             loadData($,data,formId)
+            loadDatatables($)
 	})
+    })
+    
+    // Reset selection row
+    $('#pills-table').delegate('#deselect', 'click', function(e) {
+        $('#datatables_wrapper .dt-buttons button.buttons-select-none').click()
+    })
+    
+    // Download file
+    $('#pills-tab .download-file button').click(function() {
+        $('#datatables_wrapper .dt-buttons button.buttons-excel').click()
     })
     
 })

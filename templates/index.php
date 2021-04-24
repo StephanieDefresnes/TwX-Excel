@@ -21,7 +21,9 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white">
-                <?php foreach ($options['forms'] as $form) { ?>
+                <?php foreach ($options['forms'] as $form) { 
+                    if ($form['inactive'] == 0) {
+                ?>
                     <tr>
                         <td><?= $form['name'] ?></td>
                         <td><?= $form['count'] ?></td>
@@ -33,7 +35,8 @@
                             </span>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php }
+                } ?>
                 </tbody>
             </table>
             <?php } else { ?>
@@ -56,7 +59,7 @@
                 <ul class="mb-2">
                     <li class="mb-1">
                         <span class="dashicons dashicons-yes"></span>
-                        <?php _e('Form to download', 'twx-excel'); ?>
+                        <?php _e('The form', 'twx-excel'); ?>
                     </li>
                     <li class="mb-1">
                         <span class="dashicons dashicons-yes"></span>
@@ -76,30 +79,26 @@
 
     <div id="nav-data" class="d-none mt-4">
         
-        <h5 id="formName" class="mb-4 pb-2 border-bottom border-secondary"></h5>
+        <h5 id="formName" class="mb-3"></h5>
         
-        <ul class="nav nav-pills mb-2" id="pills-tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-fields-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-fields" type="button"
-                    role="tab" aria-controls="pills-fields" aria-selected="true">
-                <?php _e('Fields list', 'twx-excel'); ?>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-table-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-table" type="button"
-                    role="tab" aria-controls="pills-table" aria-selected="false">
-                <?php _e('Data table', 'twx-excel'); ?>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-download-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-download"type="button"
-                    role="tab" aria-controls="pills-download" aria-selected="false">
-                <?php _e('Download', 'twx-excel'); ?>
-            </button>
-          </li>
+        <ul id="pills-tab" class="nav nav-pills mb-3 pb-2" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-fields-tab"
+                        data-bs-toggle="pill" data-bs-target="#pills-fields" type="button"
+                        role="tab" aria-controls="pills-fields" aria-selected="true">
+                            <?php _e('Fields 9list', 'twx-excel'); ?>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-table-tab"
+                        data-bs-toggle="pill" data-bs-target="#pills-table" type="button"
+                        role="tab" aria-controls="pills-table" aria-selected="false">
+                            <?php _e('Data table', 'twx-excel'); ?>
+                </button>
+            </li>
+            <li class="nav-item download-file">
+                <button class="nav-link" type="button"></button>
+            </li>
         </ul>
         
         <div class="tab-content" id="pills-tabContent">
@@ -111,8 +110,9 @@
             
             <div class="tab-pane fade" id="pills-table" role="tabpanel"
                  aria-labelledby="pills-table-tab">
-                <div class="list-table border">
-                    <table class="table table-bordered table-sm table-hover entries">   
+                <div class="list-table">
+                    <table id="datatables" data-lang="<?= get_locale(); ?>"
+                           class="table table-bordered table-sm table-hover entries display compact">   
                         <thead>
                             <tr></tr>
                         </thead>
@@ -124,22 +124,9 @@
                 </div>
             </div>
             
-            <div class="tab-pane fade" id="pills-download" role="tabpanel"
-                 aria-labelledby="pills-download-tab">
-                <div class="text-center mt-4">
-                    <p class="small mb-4">
-                        <?php _e('Depending on the browser you are downloading the file from, it may be claimed to be <em>&quot;damaged&quot;</em>.',
-                                'twx-excel'); ?><br>
-                        <?php _e('However, you can open it without risk.', 'twx-excel'); ?>
-                    </p>
-                    <button class="btn btn-dark pt-1" id="download-xls">
-                        <?php _e('Download now', 'twx-excel'); ?>
-                    </button>
-                </div>
-            </div>
-            
         </div>
 
     </div>
     
 </div>
+<script>var pluginUrl = '<?= plugins_url('twx-excel'); ?>'</script>

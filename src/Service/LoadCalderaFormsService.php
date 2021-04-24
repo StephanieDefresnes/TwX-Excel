@@ -27,15 +27,16 @@ class LoadCalderaFormsService {
                 foreach ($value['fields'] as $key => $field) {
                     $fieldName[] = [$field['ID'] => $field['label']];
                 }
+                $formDraft = $value['form_draft'];
             }
             $data[] = [
                 'id' => $value['ID'],
                 'name' => $value['name'],
+                'inactive' => $formDraft,
                 'count' => $object->formEntries,
                 'labels' => $fieldName,
             ];
         }
-        
         return ($options['forms'] = $data);
     }
     

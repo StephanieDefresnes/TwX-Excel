@@ -42,62 +42,46 @@ msgstr "Formulaires et Exportation"
 msgid "Active Forms list"
 msgstr "Liste des formulaires actifs"
 
-#: ../templates/index.php:31
+#: ../templates/index.php:33
 msgid "Consult"
 msgstr "Consulter"
 
-#: ../templates/index.php:41
+#: ../templates/index.php:44
 msgid "No entry recorded among active forms."
 msgstr "Aucune entrée enregistrée parmi les formulaires actifs."
 
-#: ../templates/index.php:42
+#: ../templates/index.php:45
 msgid "Please refer to the "
 msgstr "Veuillez vous référer au plugin "
 
-#: ../templates/index.php:46
+#: ../templates/index.php:49
 msgid "&nbsp;plugin."
 msgstr "."
 
-#: ../templates/index.php:55
+#: ../templates/index.php:58
 msgid "Please select :"
 msgstr "Veuillez sélectionner :"
 
-#: ../templates/index.php:59
-msgid "Form to download"
-msgstr "Le formulaire à télécharger"
+#: ../templates/index.php:62
+msgid "The form"
+msgstr "Le formulaire"
 
-#: ../templates/index.php:63
+#: ../templates/index.php:66
 msgid "Fields to keep"
 msgstr "Les champs à conserver"
 
-#: ../templates/index.php:67
+#: ../templates/index.php:70
 msgid "Entries to keep"
 msgstr "Les entrées à conserver"
 
-#: ../templates/index.php:70
+#: ../templates/index.php:73
 msgid "Than download !"
 msgstr "Et télécharger !"
 
-#: ../templates/index.php:86
+#: ../templates/index.php:89
 msgid "Fields list"
 msgstr "Liste des champs"
 
-#: ../templates/index.php:93
+#: ../templates/index.php:96
 msgid "Data table"
 msgstr "Tableau de données"
-
-#: ../templates/index.php:100
-msgid "Download"
-msgstr "Téléchargement"
-
-#: ../templates/index.php:126
-msgid "Depending on the browser you are downloading the file from, it may be claimed to be <em>&quot;damaged&quot;</em>."
-msgstr "Selon le navigateur à partir duquel vous télécharger le fichier, celui-ci peut être annoncé <em>&quot;endommagé&quot;</em>."
-
-#: ../templates/index.php:133
-msgid "However, you can open it without risk."
-msgstr "Vous pouvez cependant l'ouvrir sans risque."
-
-#: ../templates/index.php:136
-msgid "Download now"
-msgstr "Télécharger"

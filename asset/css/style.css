@@ -13,6 +13,7 @@
     height: 100%;
     width: calc(100% + 20px);
     margin-left: -20px;
+    z-index: 10;
 }
 .read-form[data-toggle],
 .read-form[data-placement],
@@ -32,7 +33,20 @@
     font-size: 17px;
     vertical-align: middle;
 }
-
+.alert small .dashicons {
+    width: 13px;
+    font-size: 11px;
+    vertical-align: baseline;
+}
+.rtl .alert small {
+    display: none;
+}
+.alert small .ctrl-apple {
+    display: inline flow-root list-item;
+    width: 10px;
+    height: 10px;
+    background: url(../img/ctrl-apple.png) center bottom/9px 9px no-repeat;
+}
 
 .entries {
     margin-bottom: 0;
@@ -104,18 +118,119 @@
     margin-top: 2px;
 }
 
-#pills-table tbody .noExl {
-    background: #ccc;
+#pills-tab {
+    position: relative;
+    border-bottom: 1px solid #ddd !important;
 }
-#pills-table tbody .control-check.noExl {
-    background: transparent;
+#pills-tab .download-file button {
+    position: absolute;
+    right: 0;
+    padding: 19px 35px !important;
+    background: #1d2327 url(../img/file-donwload.png) center/20px 20px no-repeat !important;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+.rtl #pills-tab .download-file button {
+    right: unset;
+    left: 0;
+}
+#pills-tab .download-file button:hover {
+    border-color: #666;
 }
 
-.list-table {
-    max-height: 412px;
-    border-color: #999 !important;
-    overflow: auto;
+#datatables {
+    border-bottom: 0;
 }
-.list-table, .list-table table {
-    transform: rotateX(180deg);
+#datatables_length {
+    margin-top: 5px;
+}
+#datatables_length select {
+    width: 55px;
+    padding: 2px 4px;
+    margin: -5px 5px 0;
+}
+@media (max-width: 782px) {
+    #datatables_length select {
+        margin: -4px 0 0;
+        padding: 4px;
+    }
+    .d-custom {
+        display: none;
+    }
+}
+#datatables_wrapper .dt-buttons {
+    display: none;
+}
+#datatables_wrapper table.dataTable tbody > tr.selected {
+    background: #b3b3b3;
+}
+#datatables_filter input {
+    padding: 0 8px;
+}
+.table-overflow {
+    border-bottom: 1px solid #ddd;
+    overflow: auto !important;
+    scrollbar-color: #1d2327 #ddd;
+}
+.table-overflow::-webkit-scrollbar-track {
+  background: #ddd;
+}
+.table-overflow::-webkit-scrollbar-thumb {
+  background-color: #1d2327;
+}
+#datatables_paginate {
+    margin-top: 7px;
+}
+#datatables_paginate a {
+    padding: 1px 10px 2px;
+    border-width: 0 !important;
+}
+#datatables_paginate span a {
+    background: #1d2327;
+    color: #fff !important;
+}
+#datatables_paginate span a.current {
+    background: #666;
+    color: #fff !important;
+    cursor: default !important;
+}
+.dataTables_wrapper .dataTables_paginate > .paginate_button:not(.disabled):hover, 
+.dataTables_wrapper .dataTables_paginate > .paginate_button:not(.disabled):active, 
+.dataTables_wrapper .dataTables_paginate > .paginate_button:not(.disabled):focus {
+    background: none;
+    color: #000 !important;
+    text-decoration: underline !important;
+    border-color: transparent !important;
+    box-shadow: inset 0 0 transparent !important;
+}
+
+.list-table thead th {
+    padding: 4px 20px 4px 4px !important;
+    font-size: 15px;
+}
+.rtl .list-table thead th {
+    padding: 4px 4px 4px 20px !important;
+}
+.list-table thead tr .sorting {
+    background-position: 100% 6px !important;
+}
+.rtl .list-table thead tr .sorting {
+    background-position: 0 8px !important;
+}
+.list-table tbody tr td:first-child {
+    text-align: right;
+}
+.rtl .list-table tbody tr td:first-child {
+    text-align: left;
+}
+.dataTables_wrapper .dataTables_info {
+    font-size: 14px;
+    margin-top: 2px;
+}
+#deselect {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    vertical-align: text-bottom;
+    cursor: pointer;
 }

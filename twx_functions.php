@@ -4,7 +4,7 @@
  * Text Domain: twx-excel
  * Domain Path: /languages
  * Description: Entries Caldera Forms export in .xls
- * Version: 1.1
+ * Version: 1.2
  * Requires at least: 5.7
  * Tested up to: 5.7
  * Author: TwXDesign
@@ -77,7 +77,7 @@ class TwxExportExcel
     
     public function twx_excel_textdomain() 
     {
-        load_plugin_textdomain( 'twx-excel', false, dirname( TWX_BASENAME ) . '/languages/'); 
+        load_plugin_textdomain( 'twx-excel', false, dirname( TWX_BASENAME ) . '/languages/');
     }
     
     public function twx_excel_load_scripts($hook) {
@@ -86,15 +86,12 @@ class TwxExportExcel
         wp_enqueue_script('bootstrap',
             TWX_URL . '/asset/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js', 
             array('jquery'), '', true);
-        
-        wp_enqueue_script('table2excel',
-            TWX_URL. '/asset/js/jquery.table2excel.js',
+        wp_enqueue_script('datatables',
+            TWX_URL . '/asset/datatables/datatables.min.js', 
             array('jquery'), '', true);
-        
         wp_enqueue_script('script',
             TWX_URL. '/asset/js/twx-script.js',
             array('jquery'), '', true);
-        
         wp_enqueue_script('ajax-script',
             TWX_URL. '/asset/js/twx-ajax.js',
             array('jquery'), '', true);
@@ -103,6 +100,8 @@ class TwxExportExcel
         
         wp_enqueue_style('bootstrap',
             TWX_URL. '/asset/bootstrap/5.0.0-beta3/css/bootstrap.min.css');
+        wp_enqueue_style('datatables',
+            TWX_URL. '/asset/datatables/datatables.min.css');
         wp_enqueue_style('parent-style',
             TWX_URL. '/asset/css/style.css' );
     }
@@ -116,7 +115,7 @@ class TwxExportExcel
         $load_caldera_forms_service = LoadCalderaFormsService::load_values();
         return $load_caldera_forms_service;
     }
-    
+
 }
 
 $twx_export_excel = new TwxExportExcel();
