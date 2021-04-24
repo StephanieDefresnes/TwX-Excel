@@ -18,5 +18,6 @@ Developed for specific needs, this plugin needs to be tested for all configurati
 	• English
 	• French
 	• Spanish
+Datatables translation is managed by i18n.
 
 After downloading TwX Excel plugin, please **rename master folder** into ***twx-excel*** before WP installation
