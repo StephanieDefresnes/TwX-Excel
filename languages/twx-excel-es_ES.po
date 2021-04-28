@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: ../twx_functions.php:3
-msgid "TwX Excel Export for Caldera Forms"
+msgid "TwX Export Excel for Caldera Forms"
 msgstr "Exportación TwX Excel para formularios Caldera"
 
 #: ../twx_functions.php:6

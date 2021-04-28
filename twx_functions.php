@@ -1,16 +1,19 @@
 <?php
+/**
+ * @package Twx
+ */
 /*
- * Plugin Name: TwX Excel Export for Caldera Forms
- * Text Domain: twx-excel
- * Domain Path: /languages
- * Description: Entries Caldera Forms export in .xls
- * Version: 1.2
- * Requires at least: 5.7
- * Tested up to: 5.7
- * Author: TwXDesign
- * Author URI: https://www.twxdesign.com/
- * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+   Plugin Name: TwX Export Excel for Caldera Forms
+   Text Domain: twx-excel
+   Domain Path: /languages
+   Description: Entries Caldera Forms export in .xls
+   Version: 1.2
+   Requires at least: 5.7
+   Tested up to: 5.7
+   Author: TwXDesign
+   Author URI: https://www.twxdesign.com/
+   License: GPL-2.0+
+   License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 namespace TwxExcel;
     
